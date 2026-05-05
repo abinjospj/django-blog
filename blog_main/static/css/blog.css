@@ -1,69 +1,107 @@
-/* stylelint-disable selector-list-comma-newline-after */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #e4e4e4;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.main-content {
+  flex: 1;
+}
 
 .blog-header {
   border-bottom: 1px solid #e5e5e5;
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 2.25rem;
+  color: #ffffff !important;
 }
 
 .blog-header-logo:hover {
   text-decoration: none;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-family: "Playfair Display", Georgia, serif;
 }
+
 
 .display-4 {
   font-size: 2.5rem;
 }
+
 @media (min-width: 768px) {
   .display-4 {
     font-size: 3rem;
   }
 }
 
+
 .flex-auto {
   flex: 0 0 auto;
 }
 
 .h-250 { height: 250px; }
+
 @media (min-width: 768px) {
   .h-md-250 { height: 250px; }
 }
 
-/* Pagination */
+/* Pagination (reduced space) */
 .blog-pagination {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
-/*
- * Blog posts
- */
+/* Blog posts (reduced space) */
 .blog-post {
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
+
 .blog-post-title {
   font-size: 2.5rem;
 }
+
 .blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #727272;
+  margin-bottom: 1rem;
+  color: #aaa;
 }
 
-/*
- * Footer
- */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #727272;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
+/* Cards */
+.card {
+  background-color: #1e1e1e;
+  color: #ddd;
 }
-.blog-footer p:last-child {
-  margin-bottom: 0;
+
+/* Light background override */
+.bg-light {
+  background-color: #1e1e1e !important;
+  color: #ddd;
+}
+
+/* Links */
+a {
+  color: #f8c146;
+}
+
+/* Footer (perfectly aligned) */
+.blog-footer {
+  padding: 1.5rem 0;
+  color: #fff;
+  text-align: center;
+  background-color: #1e1e1e;
+
+  margin-top: auto; 
+}
+
+.blog-footer p {
+  margin: 0;
 }
