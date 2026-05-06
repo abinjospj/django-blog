@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Page content-->
+<div class="container mt-5">
+    <div class="row">
+        
+        <!-- Main Post -->
+        <div class="col-lg-8">
+            <article>
+                <header class="mb-4">
+                    <h1 class="fw-bolder mb-1">{{ single_post.title }}</h1>
+
+                    <div class="text-muted fst-italic mb-2">
+                        {{ single_post.updated_at }} | {{ single_post.author }}
+                    </div>
+
+                    <a class="badge bg-warning text-decoration-none text-light" href="">
+                        {{ single_post.category }}
+                    </a>
+                </header>
+
+                <figure class="mb-4">
+                    <img class="img-fluid rounded" src="{{ single_post.featured_image.url }}" alt="">
+                </figure>
+
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{ single_post.short_description }}</p>
+                    <p class="fs-5 mb-4">{{ single_post.blog_body }}</p>
+                </section>
+            </article>
+        </div>
+
+        <!-- ✅ Sidebar -->
+        <div class="col-lg-4">
+
+            <!-- Categories -->
+            <div class="card mb-4 p-3">
+                <h4 class="font-italic">Categories</h4>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        {% for category in categories %}
+                        <li>
+                            <a href="{% url 'posts_by_category' category.id %}">
+                                {{ category.category_name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Follow Us -->
+            <div class="card mb-4 p-3">
+                <h4 class="font-italic">Follow Us</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#!">GitHub</a></li>
+                    <li><a href="#!">LinkedIn</a></li>
+                </ol>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
