@@ -18,10 +18,11 @@ def dashboard(request):
 
     return render(request, 'dashboard/dashboard.html',context)
 
-
+@login_required(login_url='login')
 def categories(request):
     return render(request, 'dashboard/categories.html')
 
+@login_required(login_url='login')
 def add_category(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -35,6 +36,7 @@ def add_category(request):
     }
     return render(request, 'dashboard/add_category.html', context)
 
+@login_required(login_url='login')
 def edit_category(request, id):
     category = get_object_or_404(Category, id=id)
     if request.method == "POST":
@@ -51,13 +53,13 @@ def edit_category(request, id):
 
     return render(request, 'dashboard/edit_category.html', context)
 
-
+@login_required(login_url='login')
 def delete_category(request, id):
     category = get_object_or_404(Category, id=id)
     category.delete()
     return redirect('categories')
 
-
+@login_required(login_url='login')
 def posts(request):
     posts = Blog.objects.all()
     
@@ -66,7 +68,7 @@ def posts(request):
     }
     return render(request, 'dashboard/posts.html', context)
 
-
+@login_required(login_url='login')
 def add_post(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST, request.FILES)
@@ -88,7 +90,7 @@ def add_post(request):
 
     return render(request, 'dashboard/add_post.html', context)
 
-
+@login_required(login_url='login')
 def edit_post(request, id):
     post = get_object_or_404(Blog, id=id)
     if request.method == 'POST':
@@ -108,12 +110,13 @@ def edit_post(request, id):
     }
     return render(request, 'dashboard/edit_post.html', context)
 
-
+@login_required(login_url='login')
 def delete_post(request, id):
     post = get_object_or_404(Blog, id=id)
     post.delete()
     return redirect('posts')
 
+@login_required(login_url='login')
 def user(request):
     users = User.objects.all()
     context = {
@@ -121,6 +124,7 @@ def user(request):
     } 
     return render(request, 'dashboard/user.html', context)
 
+@login_required(login_url='login')
 def add_user(request):
     if request.method == "POST":
         form = AddUserForm(request.POST)
@@ -134,7 +138,7 @@ def add_user(request):
     }
     return render(request, 'dashboard/add_user.html', context)
 
-
+@login_required(login_url='login')
 def edit_user(request, id):
     users = get_object_or_404(User, id=id)
     if request.method == 'POST':
@@ -150,6 +154,7 @@ def edit_user(request, id):
     }
     return render(request, 'dashboard/edit_user.html', context)
 
+@login_required(login_url='login')
 def delete_user(request,id):
     user = get_object_or_404(User, id=id)
     user.delete()

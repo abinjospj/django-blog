@@ -6,6 +6,6 @@
             <a href="{% url 'users' %}" class="nav-link text-white {% if '/users/' in request.path %}bg-warning {% endif %}">Users</a>
             {% endif %}
             <a href="{% url 'posts' %}" class="nav-link text-white {% if '/posts/' in request.path %}bg-warning{% endif %}">Blog</a>
-            <a href="" class="nav-link text-white">Logout</a>
+            <a href="{% url 'logout' %}" class="nav-link text-white {% if '/logout/' == request.path %}bg-warning{% endif %}">Logout</a>
         </div>
     </div>
