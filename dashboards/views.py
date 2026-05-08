@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from blogs.models import Category, Blog
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from .forms import CategoryForm, BlogPostForm, AddUserForm, EditUserForm 
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
