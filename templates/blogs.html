@@ -59,7 +59,7 @@
                             <input type="submit" value="submit" class="btn btn-warning mt-2">
                         </div>
                         {% else %}
-                        <p>Pease login to write a comment!</p>
+                        <p>Please <a href="{% url 'login' %}">login</a> to write a comment!</p>
                     </form>
                     {% endif %}
                  </div>
